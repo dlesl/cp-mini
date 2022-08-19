@@ -12,7 +12,7 @@ As a docker image (amd64 or arm64)
 ``` sh
 docker run --rm -p 2181:2181 -p 29092:29092 -p 8081:8081 \
     -e CREATE_TOPICS=test_topic \
-    gchr.io/dlesl/cp-mini
+    ghcr.io/dlesl/cp-mini
 ```
 
 Or in a docker-compose stack (here we make the kafka broker accessible from the host at `localhost:29092`)
