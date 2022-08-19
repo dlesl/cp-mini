@@ -1,0 +1,24 @@
+services:
+  cp-mini:
+    build: .
+    ports:
+      - 8081:8081
+      - 29092:29092
+    environment:
+      CREATE_TOPICS: test_topic
+      ROOT_LOG_LEVEL: warn
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_LISTENERS: CLIENT://:9092,EXTERNAL://:29092
+      KAFKA_ADVERTISED_LISTENERS: CLIENT://cp-mini:9092,EXTERNAL://127.0.0.1:29092
+      KAFKA_INTER_BROKER_LISTENER_NAME: CLIENT
+
+  test:
+    build: ./test
+    volumes:
+      - ./test:/mnt
+    environment:
+      SCHEMA_REGISTRY: cp-mini:8081
+      KAFKA: cp-mini:9092
+    depends_on:
+      cp-mini:
+        condition: service_healthy

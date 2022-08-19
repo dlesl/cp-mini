@@ -1,0 +1,5 @@
+[
+  {
+    "interfaces":["javax.ws.rs.core.HttpHeaders","org.glassfish.hk2.api.ProxyCtl"]}
+  
+]
