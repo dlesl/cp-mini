@@ -18,7 +18,7 @@ dependencies {
         exclude group: "org.apache.kafka", module: "kafka-streams-test-utils"
     }
     implementation("io.confluent:kafka-schema-registry:7.4.0")
-    implementation("ch.qos.logback:logback-classic:1.4.8")
+    implementation("ch.qos.logback:logback-classic:1.4.11")
 }
 
 application {
